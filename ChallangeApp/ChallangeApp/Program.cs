@@ -1,18 +1,28 @@
-﻿
-var name = "Ewa";
-var sex = "Kobieta";
-var age = 28;
+﻿using System.Diagnostics.Metrics;
 
-if (sex == "Kobieta" && age < 30)
+Console.WriteLine("Podaj liczbe:");
+
+string number = Console.ReadLine();
+char[] leters = number.ToArray();
+
+int[] amount= new int[10];
+
+Console.WriteLine("wynik dla liczby {0}", number);
+
+for (int i = 0; i < amount.Length; i++)
 {
-    Console.WriteLine("Kobieta ma poniżej 30 lat");
+    foreach (var leter in leters)
+    {
+        var leterToString = leter.ToString();
+        var leterInt = int.Parse(leterToString);
+
+        if (leterInt==i)
+        {
+            amount[i]++;
+        }
+    }
+ Console.WriteLine("{0}=>{1}", i, amount[i]);
 }
-else if (name == "Ewa" && age == 30)
-{
-    Console.WriteLine("Ewa lat 30 lat");
-}
-else if (sex == "Mężczyzna" && age < 18)
-{
-    Console.WriteLine("Niepełnoletni Mężczyzna");
-}
+
+
 
