@@ -20,7 +20,7 @@ employee2.Addscores(1);
 employee2.Addscores(9);
 
 employee3.Addscores(9);
-employee3.Addscores(50);
+employee3.Addscores(5);
 employee3.Addscores(9);
 employee3.Addscores(6);
 employee3.Addscores(1);

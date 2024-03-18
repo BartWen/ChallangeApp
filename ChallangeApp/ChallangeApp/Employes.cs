@@ -1,11 +1,7 @@
 ﻿
-
-using System.Numerics;
-using System.Xml.Schema;
-
 namespace ChallangeApp
 {
-    class Employee
+    public class Employee
     {
         public Employee(string name, string surname, int age)
         {
@@ -26,6 +22,10 @@ namespace ChallangeApp
         public void Addscores(int number)
         {
             this.scores.Add(number);
+        }
+        public void SubstractScores(int number)
+        {
+            this.scores.Add(-(number));
         }
  
     } 
