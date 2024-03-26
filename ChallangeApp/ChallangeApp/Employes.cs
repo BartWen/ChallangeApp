@@ -15,17 +15,41 @@ namespace ChallangeApp
 
         public void AddGrade(float grade)
         {
-            this.grades.Add(grade);
+            if (grade >= 0 && grade <= 100)
+            {
+                this.grades.Add(grade);
+            }
+            else
+            {
+                Console.WriteLine("Invalid Value");
+            }
         }
-        public Statistics GetStatistics2()
+        public void AddGrade(string grade)
         {
-            var statistics = new Statistics();
-
-            statistics.Max = this.grades.Max();
-            statistics.Min = this.grades.Min();
-            statistics.Avarege = this.grades.Average();
-
-            return statistics;
+            if (float.TryParse(grade, out float value))
+            {
+                this.AddGrade(value);
+            }
+            else
+            {
+                Console.WriteLine("String is not float");
+            }
+        }
+        public void AddGrade(int grade)
+        {         
+            if (grade >= 0 && grade <= 100)
+            {
+                this.grades.Add(grade);
+            }
+            else
+            {
+                Console.WriteLine("Invalid Value");
+            }           
+        }
+        public void AddGrade(double grade)
+        {
+            float value = (float)grade;
+            this.grades.Add(value);
         }
         public Statistics GetStatistics()
         {
@@ -38,15 +62,14 @@ namespace ChallangeApp
             foreach (var grade in this.grades)
             {
                 statistics.Max = Math.Max(statistics.Max, grade);
-                statistics.Min = Math.Min(statistics.Max, grade);
+                statistics.Min = Math.Min(statistics.Min, grade);
 
                 statistics.Avarege += grade;
             }
 
-            statistics.Avarege/=this.grades.Count();
+            statistics.Avarege /= this.grades.Count();
 
             return statistics;
-
         }
     }
 

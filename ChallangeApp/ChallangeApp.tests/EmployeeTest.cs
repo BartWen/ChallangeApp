@@ -43,11 +43,11 @@ namespace ChallangeApp.tests
             //act
             employee.AddGrade(5);
             employee.AddGrade(3);
-            employee.AddGrade(1);
+            employee.AddGrade(2);
             //assert
             var statistic = employee.GetStatistics();
 
-            Assert.AreEqual(3, statistic.Avarege);
+            Assert.AreEqual(Math.Round(3.33,2),Math.Round(statistic.Avarege,2));
 
         }
 
