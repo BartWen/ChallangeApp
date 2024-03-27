@@ -3,11 +3,11 @@
 var employee = new Employee("M", "Z");
 
 employee.AddGrade(10);
-employee.AddGrade("as");
-employee.AddGrade(5);
-employee.AddGrade(33.455561565615);
-employee.AddGrade(33.4);
-employee.AddGrade(15);
+//employee.AddGrade("1");
+//employee.AddGrade(5);
+//employee.AddGrade(33.455561565615);
+//employee.AddGrade(33.4);
+//employee.AddGrade(115);
 
 
 var statistics = employee.GetStatistics();

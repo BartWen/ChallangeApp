@@ -36,20 +36,12 @@ namespace ChallangeApp
             }
         }
         public void AddGrade(int grade)
-        {         
-            if (grade >= 0 && grade <= 100)
-            {
-                this.grades.Add(grade);
-            }
-            else
-            {
-                Console.WriteLine("Invalid Value");
-            }           
+        {           
+            this.AddGrade((float)grade);
         }
         public void AddGrade(double grade)
-        {
-            float value = (float)grade;
-            this.grades.Add(value);
+        {           
+            this.AddGrade((float)grade);
         }
         public Statistics GetStatistics()
         {
