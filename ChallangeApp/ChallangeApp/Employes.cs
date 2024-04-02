@@ -1,4 +1,6 @@
 ﻿
+using System.Diagnostics;
+
 namespace ChallangeApp
 {
     public class Employee
@@ -63,7 +65,71 @@ namespace ChallangeApp
 
             return statistics;
         }
+        public Statistics GetStatisticswuthFor()
+        {
+            var statistics = new Statistics();
+
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+            statistics.Avarege = 0;
+
+            for (int i = 0; i < grades.Count; i++)
+            {
+                statistics.Max = Math.Max(statistics.Max, grades[i]);
+                statistics.Min = Math.Min(statistics.Min, grades[i]);
+
+                statistics.Avarege += grades[i];
+            }
+            
+            statistics.Avarege /= this.grades.Count();
+
+            return statistics;
+        }
+        public Statistics GetStatisticswuthDoWhile()
+        {
+            var statistics = new Statistics();
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+            statistics.Avarege = 0;
+            var lineCount = 0;
+            do
+            {
+                statistics.Max = Math.Max(statistics.Max, this.grades[lineCount]);
+                statistics.Min = Math.Min(statistics.Min, this.grades[lineCount]);
+
+                statistics.Avarege += this.grades[lineCount];
+                lineCount++;
+            }
+            while (lineCount < this.grades.Count);
+                     
+            statistics.Avarege /= this.grades.Count();
+
+            return statistics;
+        }
+        public Statistics GetStatisticsWhile()
+        {
+            var statistics = new Statistics();
+
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+            statistics.Avarege = 0;
+            var lineCount = 0;
+
+            while (lineCount<this.grades.Count)
+            {
+                statistics.Max = Math.Max(statistics.Max, grades[lineCount]);
+                statistics.Min = Math.Min(statistics.Min, grades[lineCount]);
+
+                statistics.Avarege += grades[lineCount];
+                lineCount++;
+            }
+
+            statistics.Avarege /= this.grades.Count();
+
+            return statistics;
+        }
     }
+
 
 }
 
