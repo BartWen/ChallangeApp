@@ -1,18 +1,20 @@
 ﻿
 
+using System.Reflection.Metadata.Ecma335;
+
 namespace ChallangeApp
 {
-    public class Employee
+    public class Employee:Person
     {
         private List<float> grades = new List<float>();
 
-        public Employee(string name, string surname)
-        {
-            this.name = name;
-            this.surname = surname;
+        public Employee(string name, string surname, char sex, int age,string position)
+            : base (name,surname,sex,age)
+        {         
+            this.position = position;
         }
-        public string name { get; private set; }
-        public string surname { get; private set; }
+
+        public string position { get; private set; }
 
         public void AddGrade(float grade)
         {
