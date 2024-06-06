@@ -1,4 +1,10 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
 
 namespace ChallangeApp
 {
@@ -89,6 +95,20 @@ namespace ChallangeApp
                     this.grades.Add(0);
                     break;
             }
+
+
+
+            //if (float.TryParse(grade, out float value))
+            //{
+            //    this.AddGrade(value);
+            //}
+            //else if (char.TryParse(grade, out char LetterResult))
+
+            //    this.AddGrade(LetterResult);
+            //else
+            //{
+            //    throw new Exception("String is not float");
+            //}
         }
         public void AddGrade(char grade)
         {
