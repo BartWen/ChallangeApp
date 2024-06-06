@@ -4,11 +4,12 @@ Console.WriteLine("Witamy w programie oceny pracowanika");
 Console.WriteLine("====================================");
 Console.WriteLine();
 
-var employee = new Employee("Mark","Edmos");
+var employee = new Supervisor("Mark","Edmos");
+
 
 while (true)
 {
-    Console.WriteLine("Podaj ocene pracownika");
+    Console.WriteLine("Podaj ocene szefa");
     var input = Console.ReadLine();
     if (input == "q")
     {
