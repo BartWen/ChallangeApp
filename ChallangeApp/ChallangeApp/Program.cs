@@ -4,7 +4,8 @@ Console.WriteLine("Witamy w programie oceny pracowanika");
 Console.WriteLine("====================================");
 Console.WriteLine();
 
-var employee = new Supervisor("Mark","Edmos");
+var employee = new EmployeeInFile("Mark","Edmos");
+
 
 
 while (true)
@@ -32,6 +33,8 @@ Console.WriteLine($"Maksymalny wynik:{statistics.Max}");
 Console.WriteLine($"Minimalny wynik:{statistics.Min}");
 Console.WriteLine($"Srednia wyników:{statistics.Avarege:N2}");
 Console.WriteLine($"Ocena końcowa:{statistics.AverageLetter}");
+
+
 
 
 
