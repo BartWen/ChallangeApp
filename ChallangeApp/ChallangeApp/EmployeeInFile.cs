@@ -4,6 +4,8 @@ namespace ChallangeApp
     public class EmployeeInFile : EmployeeBase
     {
         private const string fileName = "grades.txt";
+
+        public override event GradeAddedDelegate GradeAdded;
         public EmployeeInFile(string name, string surname)
             : base(name, surname)
         { 
@@ -16,6 +18,11 @@ namespace ChallangeApp
                 using (var writer = File.AppendText(fileName))
                 {
                     writer.WriteLine(grade);
+
+                    if (GradeAdded != null)
+                    {
+                        GradeAdded(this, new EventArgs());
+                    }
                 }
             }
             else
@@ -83,7 +90,6 @@ namespace ChallangeApp
         {
             var result = new Statistics();
             
-
             result.Max = float.MinValue;
             result.Min = float.MaxValue;
             result.Avarege = 0;
@@ -127,7 +133,6 @@ namespace ChallangeApp
                         break;
                 }
             }
-
             return result;
         }
     }

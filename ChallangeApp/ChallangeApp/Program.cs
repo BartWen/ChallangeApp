@@ -4,17 +4,22 @@ Console.WriteLine("Witamy w programie oceny pracowanika");
 Console.WriteLine("====================================");
 Console.WriteLine();
 
-var employee = new EmployeeInFile("Mark","Edmos");
+var employee = new EmployeeInMemory("Mark", "Edmos");
+employee.GradeAdded += Employee_GradeAdded;
 
-
+void Employee_GradeAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("Dodano nową ocene");
+}
 
 while (true)
 {
+    Console.WriteLine("  ");
     Console.WriteLine("Podaj ocene szefa");
     var input = Console.ReadLine();
     if (input == "q")
     {
-        break; 
+        break;
     }
     try
     {
@@ -22,9 +27,9 @@ while (true)
     }
     catch (Exception e)
     {
-        Console.WriteLine($"Exception catched: {e.Message}");    
+        Console.WriteLine($"Exception catched: {e.Message}");
     }
-    
+
 }
 
 var statistics = employee.GetStatistics();

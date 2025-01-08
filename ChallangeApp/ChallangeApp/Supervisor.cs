@@ -5,6 +5,7 @@ namespace ChallangeApp
     {
         private List<float> grades = new List<float>();
 
+        
         public Supervisor(string name, string surname)
 
         {
