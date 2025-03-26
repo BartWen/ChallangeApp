@@ -7,7 +7,7 @@ namespace ChallangeApp.tests
         public void WhenUserScoresAreMax_ResultShouldEqualZero()
         {
             //arrange
-            var employee = new Employee();
+            var employee = new EmployeeInFile("Mark", "Edmos");
             //act          
             employee.AddGrade('z');
             employee.AddGrade("gg");

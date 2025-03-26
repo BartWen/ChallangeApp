@@ -4,7 +4,7 @@ Console.WriteLine("Witamy w programie oceny pracowanika");
 Console.WriteLine("====================================");
 Console.WriteLine();
 
-var employee = new EmployeeInMemory("Mark", "Edmos");
+var employee = new EmployeeInFile("Mark", "Edmos");
 employee.GradeAdded += Employee_GradeAdded;
 
 void Employee_GradeAdded(object sender, EventArgs args)
@@ -17,6 +17,7 @@ while (true)
     Console.WriteLine("  ");
     Console.WriteLine("Podaj ocene szefa");
     var input = Console.ReadLine();
+    
     if (input == "q")
     {
         break;

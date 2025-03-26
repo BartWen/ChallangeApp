@@ -1,4 +1,6 @@
 ﻿
+using System.ComponentModel.Design;
+
 namespace ChallangeApp
 {
     public class EmployeeInFile : EmployeeBase
@@ -8,7 +10,7 @@ namespace ChallangeApp
         public override event GradeAddedDelegate GradeAdded;
         public EmployeeInFile(string name, string surname)
             : base(name, surname)
-        { 
+        {
         }
 
         public override void AddGrade(float grade)
@@ -29,7 +31,7 @@ namespace ChallangeApp
             {
                 throw new Exception("Invalid Value");
             }
-          
+
         }
 
         public override void AddGrade(string grade)
@@ -85,55 +87,29 @@ namespace ChallangeApp
         {
             this.AddGrade((float)grade);
         }
-         
+
         public override Statistics GetStatistics()
         {
-            var result = new Statistics();
-            
-            result.Max = float.MinValue;
-            result.Min = float.MaxValue;
-            result.Avarege = 0;
-            var counter = 0;
+            var statistic = new Statistics();
 
             if (File.Exists(fileName))
             {
-
                 using (var reader = File.OpenText(fileName))
-                {
-                    var line = reader.ReadLine();
+                { 
+                    //var line = reader.ReadLine();
+                    var line2 = reader.ReadLine();
 
-                    while (line != null)
+                    while (line2 != null)
                     {
-                        var number = float.Parse(line);
-                        result.Max = Math.Max(result.Max, number);
-                        result.Min = Math.Min(result.Min, number);
-                        result.Avarege += number;
-                        counter ++;
-                        line= reader.ReadLine();
+                        var number = float.Parse(line2);
+                        statistic.AddGrade(number);
+                        line2 = reader.ReadLine();
                     }
-                }
-                result.Avarege /= counter;
+                   
 
-                switch (result.Avarege)
-                {
-                    case var average when average >= 80:
-                        result.AverageLetter = 'A';
-                        break;
-                    case var average when average >= 60:
-                        result.AverageLetter = 'B';
-                        break;
-                    case var average when average >= 40:
-                        result.AverageLetter = 'C';
-                        break;
-                    case var average when average >= 20:
-                        result.AverageLetter = 'D';
-                        break;
-                    default:
-                        result.AverageLetter = 'E';
-                        break;
-                }
-            }
-            return result;
+                }           
+            }          
+            return statistic;
         }
     }
 }

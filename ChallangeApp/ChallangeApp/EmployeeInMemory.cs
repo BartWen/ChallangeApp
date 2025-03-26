@@ -72,6 +72,8 @@ namespace ChallangeApp
                 default:
                     throw new Exception("Wrong Letter");
             }
+
+
         }
 
         public override void AddGrade(int grade)
@@ -87,40 +89,12 @@ namespace ChallangeApp
         {
             var statistics = new Statistics();
 
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-            statistics.Avarege = 0;
-            
-
             foreach (var grade in this.grades)
             {
-                statistics.Max = Math.Max(statistics.Max, grade);
-                statistics.Min = Math.Min(statistics.Min, grade);
-                statistics.Avarege += grade;
-                
+                statistics.AddGrade(grade);
             }
 
-            statistics.Avarege /= this.grades.Count();
-
-            switch (statistics.Avarege)
-            {
-                case var average when average >= 80:
-                    statistics.AverageLetter = 'A';
-                    break;
-                case var average when average >= 60:
-                    statistics.AverageLetter = 'B';
-                    break;
-                case var average when average >= 40:
-                    statistics.AverageLetter = 'C';
-                    break;
-                case var average when average >= 20:
-                    statistics.AverageLetter = 'D';
-                    break;
-                default:
-                    statistics.AverageLetter = 'E';
-                    break;
-            }
-            return statistics;
+                return statistics;
         }
     }
 }
